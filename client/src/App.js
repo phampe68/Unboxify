@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { fetchEmails } from "./api";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -14,27 +15,6 @@ function App() {
     },
     onError: (error) => console.log("Login Failed:", error),
   });
-
-  // Function to fetch emails
-  async function fetchEmails() {
-    // Set up Axios instance with base URL and headers
-    const axiosInstance = axios.create({
-      baseURL: "https://gmail.googleapis.com/gmail/v1/users/me/",
-      headers: {
-        Authorization: `Bearer ${user.access_token}`,
-      },
-    });
-    try {
-      const response = await axiosInstance.get("messages");
-      return response.data.messages;
-    } catch (error) {
-      console.error(
-        "Error fetching emails:",
-        error.response ? error.response.data : error.message
-      );
-      return [];
-    }
-  }
 
   useEffect(() => {
     if (user) {
@@ -51,7 +31,10 @@ function App() {
         .then((res) => {
           setProfile(res.data);
           console.log(res.data);
-          fetchEmails();
+          fetchEmails(user.access_token).then((res) => {
+            setEmails(res);
+            console.log(res);
+          });
         })
         .catch((err) => console.log(err));
     }
