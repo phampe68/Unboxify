@@ -21,7 +21,7 @@
 
       // TODO(developer): Set to client ID and API key from the Developer Console
       const CLIENT_ID = '759699375453-28fbvc7lhg4kfo39lf07uqrmvsrl2alb.apps.googleusercontent.com';
-      const API_KEY = 'AIzaSyDP3vgzJEh57YqFwLCvIO3XOB1pSeJRggI';
+      const API_KEY = 'AIzaSyD6amGnrN_CXFL1Ggx3Y0OS6THSwve6MXE';
 
       // Discovery doc URL for APIs used by the quickstart
       const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest';
@@ -85,7 +85,6 @@
       function handleAuthClick() {
         tokenClient.callback = async (resp) => {
           if (resp.error !== undefined) {
-            conosle.log(resp);
             throw (resp);
           }
           document.getElementById('signout_button').style.visibility = 'visible';
@@ -128,7 +127,6 @@
             'userId': 'me',
           });
         } catch (err) {
-            console.log(err);
           document.getElementById('content').innerText = err.message;
           return;
         }
