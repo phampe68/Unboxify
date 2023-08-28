@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { fetchEmails } from "./api";
+import { fetchEmails, retrieveAccessToken } from "./api";
+import './App.css';
+import Lottie from "lottie-react";
+import unsubscribeAnimation from './unsubscribe.json';
+import Profile from './components/profile';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState(null);
   const [emails, setEmails] = useState([]);
 
   const login = useGoogleLogin({
@@ -17,27 +21,7 @@ function App() {
   });
 
   useEffect(() => {
-    if (user) {
-      axios
-        .get(
-          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
-          {
-            headers: {
-              Authorization: `Bearer ${user.access_token}`,
-              Accept: "application/json",
-            },
-          }
-        )
-        .then((res) => {
-          setProfile(res.data);
-          console.log(res.data);
-          fetchEmails(user.access_token).then((res) => {
-            setEmails(res);
-            console.log(res);
-          });
-        })
-        .catch((err) => console.log(err));
-    }
+    retrieveAccessToken(user, setProfile, setEmails);
   }, [user]);
 
   // log out function to log the user out of google and set the profile array to null
@@ -47,27 +31,13 @@ function App() {
   };
 
   return (
-    <div>
-      <h2>React Google Login</h2>
-      <br />
-      <br />
-      {profile ? (
-        <div>
-          <img src={profile.picture} alt="user image" />
-          <h3>User Logged in</h3>
-          <p>Name: {profile.name}</p>
-          <p>Email Address: {profile.email}</p>
-          <br />
-          <br />
-          <button onClick={logOut}>Log out</button>
-
-          <div>
-            <h1>Your emails</h1>
-          </div>
-        </div>
-      ) : (
-        <button onClick={() => login()}>Sign in with Google 🚀 </button>
-      )}
+    <div className="login-container">
+      <div className="title-container">
+        <p className="login-text login-header">Unboxify</p>
+        <Lottie animationData={unsubscribeAnimation} loop={true} className="unsubscribe-animation" />
+      </div>
+      <p className="login-text login-subtitle">A Simple Email Unsubscriber</p>
+      <Profile profile={profile} login={login} logOut={logOut} />
     </div>
   );
 }

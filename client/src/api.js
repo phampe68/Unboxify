@@ -21,3 +21,27 @@ export const fetchEmails = async (access_token) => {
   }
 };
 
+export const retrieveAccessToken = async (user, setProfile, setEmails) => {
+  if (user) {
+    axios
+      .get(
+        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.access_token}`,
+            Accept: "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        setProfile(res.data);
+        console.log(res.data);
+        fetchEmails(user.access_token).then((res) => {
+          setEmails(res);
+          console.log(res);
+        });
+      })
+      .catch((err) => console.log(err));
+  }
+}
+
