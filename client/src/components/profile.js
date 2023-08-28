@@ -4,20 +4,14 @@ import '../App.css';
 function Profile(props) {
 
   return (
-    <div>
+    <div className="profile">
       {props.profile ? (
         <div className="login-status">
-          <img className="gmail-avatar" src={props.profile.picture} alt="user image" />
-          <h3 className="login-text" >User Logged in</h3>
-          <p className="login-text">Name: {props.profile.name}</p>
-          <p className="login-text">Email Address: {props.profile.email}</p>
-          <br />
-          <br />
-          <button onClick={props.logOut}>Log out</button>
-
-          <div>
-            <h1>Your emails</h1>
-          </div>
+            <div className="profile-name">
+                <img className="gmail-avatar" src={props.profile.picture} alt="user image" onClick={props.logOut} />
+                <p className="login-text user-text name-text" >{props.profile.name}</p>
+            </div>
+            <p className="login-text user-text email-text">{props.profile.email}</p>
         </div>
       ) : (
         <button className="login-button" onClick={props.login}>

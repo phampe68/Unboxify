@@ -35,6 +35,37 @@
 
 .login-status {
   position: relative;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 1.1rem 1.6rem;
+  border-radius: 7px;
+}
+
+.profile {
+  position: absolute;
+  top: -2rem;
+  left: -2rem;
+}
+
+.profile-emails {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  margin-top: 1rem;
+}
+
+.name-text {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2px;
+}
+
+.email-text {
+  font-size: 0.8rem;
+  line-height: 2px;
 }
 
 .title-container {
@@ -46,10 +77,24 @@
   margin-top: 3rem;
 }
 
+.emails {
+  background-color: rgb(228, 228, 228);
+  height: 34rem;
+  border-radius: 10px;
+}
+
+.user-text {
+  color: white;
+}
+
 .gmail-avatar {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 2rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  border-radius: 1rem;
 }
 
 .unsubscribe-animation {
@@ -59,4 +104,11 @@
 .login-subtitle {
   color: rgba(0, 0, 0, 0.63);
   font-size: 1.15rem;
+}
+
+.profile-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }

@@ -37,7 +37,10 @@ function App() {
         <Lottie animationData={unsubscribeAnimation} loop={true} className="unsubscribe-animation" />
       </div>
       <p className="login-text login-subtitle">A Simple Email Unsubscriber</p>
-      <Profile profile={profile} login={login} logOut={logOut} />
+      <div className="profile-emails">
+        <div className="emails"></div>
+        <Profile profile={profile} login={login} logOut={logOut} />
+      </div>
     </div>
   );
 }
