@@ -11,7 +11,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
   const [emails, setEmails] = useState([]);
-  const [tabSelection, setTabSelection] = useState("inbox");
+  const [tabSelection, setTabSelection] = useState("subscriptions");
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
@@ -41,8 +41,9 @@ function App() {
       <div className="profile-emails">
         <div className="emails">
           <div className="email-options">
+            <div class={tabSelection === "subscriptions" ? "tab-button-selected" : "tab-button-unselected"} onClick={() => setTabSelection("subscriptions")}>Subscriptions</div>
             <div class={tabSelection === "inbox" ? "tab-button-selected" : "tab-button-unselected"} onClick={() => setTabSelection("inbox")}>Inbox</div>
-            <div class={tabSelection === "accounts" ? "tab-button-selected" : "tab-button-unselected"} onClick={() => setTabSelection("accounts")}>Accounts</div>
+            <div class={tabSelection === "settings" ? "tab-button-selected" : "tab-button-unselected"} onClick={() => setTabSelection("settings")}>Settings</div>
           </div>
           <div className="emails-list"></div>
         </div>

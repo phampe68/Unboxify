@@ -9,7 +9,7 @@
 
 .instructions {
   font-family: "Poppins";
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: white;
 }
 
@@ -87,14 +87,14 @@
   justify-content: space-evenly;
   align-items: center;
   height: 3rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .email-options {
   width: 14rem;
   height: 26rem;
   margin-right: 1rem;
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 
 .emails-list {
@@ -109,7 +109,7 @@
 .emails {
   background: linear-gradient(115deg, #000000 0%, #00C508 55%, #000000 100%), linear-gradient(115deg, #0057FF 0%, #020077 100%), conic-gradient(from 110deg at -5% 35%, #000000 0deg, #FAFF00 360deg), conic-gradient(from 220deg at 30% 30%, #FF0000 0deg, #0000FF 220deg, #240060 360deg), conic-gradient(from 235deg at 60% 35%, #0089D7 0deg, #0000FF 180deg, #240060 360deg);
   background-blend-mode: soft-light, soft-light, overlay, screen, normal;
-  height: 37rem;
+  height: 38rem;
   border-radius: 10px;
   display: flex;
   padding: 1rem;

@@ -25,7 +25,7 @@ function Profile(props) {
             </svg>
             <p>Get Started</p>
           </button>
-          <p className="instructions">Login to your Gmail account to view & manage subscriptions</p>
+          <p className="instructions">Login to your Gmail account to begin</p>
         </div>
       )}
     </div>
