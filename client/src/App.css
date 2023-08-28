@@ -7,6 +7,16 @@
   align-items: center;
 }
 
+.instructions {
+  font-family: "Poppins";
+  font-size: 0.9rem;
+  color: white;
+}
+
+.login-prompt-container {
+  text-align: center;
+}
+
 .login-text {
   font-family: 'Poppins';
 }
@@ -24,7 +34,7 @@
   color: rgba(0, 0, 0, 0.53);
   display: flex;
   height: 4rem;
-  width: 19rem;
+  width: 16rem;
   padding: 21.495px;
   align-items: center;
   gap: 21.495px;
@@ -37,7 +47,7 @@
   position: relative;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.75);
+  background-color: rgba(41, 41, 41, 0.75);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
   padding: 1.1rem 1.6rem;
@@ -46,13 +56,16 @@
 
 .profile {
   position: absolute;
-  top: -2rem;
-  left: -2rem;
+  top: 1rem;
+  left: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 16rem;
 }
 
 .profile-emails {
   position: relative;
-  width: 80%;
+  width: 90%;
   height: 80%;
   margin-top: 1rem;
 }
@@ -77,10 +90,32 @@
   margin-top: 3rem;
 }
 
-.emails {
-  background-color: rgb(228, 228, 228);
-  height: 34rem;
+.email-options {
+  width: 14rem;
+  height: 26rem;
+  margin-right: 1rem;
+  margin-top: 6rem;
+}
+
+.emails-list {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(204, 204, 204, 0.75);
+  width: 79.2%;
+  height: 100%;
   border-radius: 10px;
+}
+
+.emails {
+  background: linear-gradient(115deg, #000000 0%, #00C508 55%, #000000 100%), linear-gradient(115deg, #0057FF 0%, #020077 100%), conic-gradient(from 110deg at -5% 35%, #000000 0deg, #FAFF00 360deg), conic-gradient(from 220deg at 30% 30%, #FF0000 0deg, #0000FF 220deg, #240060 360deg), conic-gradient(from 235deg at 60% 35%, #0089D7 0deg, #0000FF 180deg, #240060 360deg);
+  background-blend-mode: soft-light, soft-light, overlay, screen, normal;
+  height: 37rem;
+  border-radius: 10px;
+  display: flex;
+  padding: 1rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .user-text {
@@ -88,9 +123,9 @@
 }
 
 .gmail-avatar {
-  width: 1.8rem;
-  height: 1.8rem;
-  margin-right: 8px;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.8rem;
   border-style: solid;
   border-width: 1px;
   border-color: white;
@@ -101,6 +136,32 @@
   width: 4rem;
 }
 
+.tab-button-unselected {
+  font-family: "Poppins";
+  color: rgb(109, 109, 109);
+  margin: 0 0 0.5rem 0;
+  width: 15rem;
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(180, 180, 180, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 0.8rem 0 0.8rem 1rem;
+  border-radius: 7px;
+}
+
+.tab-button-selected {
+  font-family: "Poppins";
+  color: white;
+  margin: 0 0 0.5rem 0;
+  width: 15rem;
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(67, 67, 67, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 0.8rem 0 0.8rem 1rem;
+  border-radius: 7px;
+}
+
 .login-subtitle {
   color: rgba(0, 0, 0, 0.63);
   font-size: 1.15rem;
@@ -109,6 +170,5 @@
 .profile-name {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
 }
