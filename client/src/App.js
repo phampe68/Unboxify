@@ -5,7 +5,7 @@ import { fetchEmails, retrieveAccessToken } from "./api";
 import './App.css';
 import Lottie from "lottie-react";
 import unsubscribeAnimation from './unsubscribe.json';
-import Profile from './components/profile';
+import Profile from './Components/profile';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -14,6 +14,7 @@ function App() {
   const [tabSelection, setTabSelection] = useState("subscriptions");
 
   const login = useGoogleLogin({
+    scope: "https://www.googleapis.com/auth/gmail.readonly",
     onSuccess: (codeResponse) => {
       console.log(codeResponse);
       setUser(codeResponse);

@@ -10,7 +10,7 @@ export const fetchEmails = async (access_token) => {
     },
   });
   try {
-    const response = await axiosInstance.get("messages");
+    const response = await axiosInstance.get("threads?q='unsubscribe'");
     return response.data.messages;
   } catch (error) {
     console.error(
